@@ -1,0 +1,24 @@
+{
+  "name": "devmentor-backend",
+  "version": "1.0.0",
+  "description": "Serverless",
+  "author": "Ehsan Gazar",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon --exec babel-node ./server.js",
+    "build": "babel server.js -d dist",
+    "start": "NODE_ENV=production node server.js",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "NODE_ENV=development jest --watch"
+  },
+  "dependencies": {
+    "babel-node": "^0.0.1-security",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.17.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.21.5"
+  }
+}

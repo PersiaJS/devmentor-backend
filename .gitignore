@@ -1,0 +1,10 @@
+# package directories
+node_modules
+jspm_packages
+variables.env
+variables-production.env
+jwtRS256.key
+jwtRS256.key.pub
+secret-key
+.DS_Store
+dist

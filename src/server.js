@@ -7,7 +7,7 @@ const fastify = Fastify({
 });
 
 fastify.get("/", async (request, reply) => {
-  return { hello: "world v2" };
+  return { hello: "world v3" };
 });
 
 const start = async () => {

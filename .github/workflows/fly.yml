@@ -2,7 +2,7 @@ name: Fly Deploy
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   deploy:
     name: Deploy app
@@ -18,15 +18,22 @@ jobs:
 
       - name: "Create env file"
         run: |
-          touch variables.env
-          echo CLIENT_URL=http://devmentor.dev >> variables.env
-          echo PORT=8080 >> variables.env
-          echo NODE_ENV=production >> variables.env
-          echo SEND_IN_BLUE_URL=smtp-relay.sendinblue.com >> variables.env
-          echo SEND_FROM_EMAIL=info@devmentor.dev >> variables.env
-          echo SEND_IN_BLUE_USER=me@ehsangazar.com >> variables.env
-          echo SEND_IN_BLUE_PASSWORD=${{secrets.SEND_IN_BLUE_PASSWORD}} >> variables.env
-          cat variables.env
+          touch variables-production.env
+          echo CLIENT_URL=http://devmentor.net >> variables-production.env
+          echo PORT=8080 >> variables-production.env
+          echo NODE_ENV=production >> variables-production.env
+          echo SEND_IN_BLUE_URL=smtp-relay.sendinblue.com >> variables-production.env
+          echo SEND_FROM_EMAIL=info@devmentor.net >> variables-production.env
+          echo SEND_IN_BLUE_USER=me@ehsangazar.com >> variables-production.env
+          echo SEND_IN_BLUE_PASSWORD=${{secrets.SEND_IN_BLUE_PASSWORD}} >> variables-production.env
+          echo POSTGRES_DB_DATABSE=devmentor >> variables-production.env
+          echo POSTGRES_DB_USER=postgres >> variables-production.env
+          echo POSTGRES_DB_PASSWORD=${{secrets.POSTGRES_DB_PASSWORD}} >> variables-production.env
+          echo POSTGRES_DB_HOST=devmentor-d.flycast >> variables-production.env
+          echo POSTGRES_DB_PORT=5432 >> variables-production.env
+          echo SECRET_KEY=${{secrets.SECRET_ENV}} >> variables-production.env
+          cat variables-production.env
+
       - name: Deploy to Fly
         run: flyctl deploy --remote-only
         env:

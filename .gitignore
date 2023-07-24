@@ -7,4 +7,3 @@ jwtRS256.key
 jwtRS256.key.pub
 secret-key
 .DS_Store
-dist

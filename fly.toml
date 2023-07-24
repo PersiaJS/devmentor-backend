@@ -1,6 +1,6 @@
-# fly.toml file generated for persiajs-b on 2023-03-07T06:37:42+11:00
+# fly.toml file generated for devmentor-b on 2023-03-07T06:37:42+11:00
 
-app = "persiajs-b"
+app = "devmentor-b"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []

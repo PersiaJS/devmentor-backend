@@ -13,7 +13,7 @@ const fastifyPassport = require("@fastify/passport");
 const fastifySession = require("@fastify/secure-session");
 
 const generalRoutes = require("./apis/general/routes");
-// const authRoutes = require("./apis/auth/routes");
+const authRoutes = require("./apis/auth/routes");
 
 const server = Fastify({
   logger: true,
@@ -29,7 +29,7 @@ server.register(fastifySession, {
 server.register(fastifyPassport.initialize());
 server.register(fastifyPassport.secureSession());
 server.register(generalRoutes);
-// server.register(authRoutes);
+server.register(authRoutes);
 
 const start = async () => {
   try {

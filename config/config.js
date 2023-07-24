@@ -8,15 +8,6 @@ if (process.env.NODE_ENV === "production") {
 }
 require("dotenv").config({ path: variablePath });
 
-console.log({
-  database: process.env.POSTGRES_DB_DATABSE,
-  username: process.env.POSTGRES_DB_USER,
-  password: process.env.POSTGRES_DB_PASSWORD,
-  dialect: "postgres",
-  host: process.env.POSTGRES_DB_HOST,
-  port: process.env.POSTGRES_DB_PORT,
-});
-
 module.exports = {
   database: process.env.POSTGRES_DB_DATABSE,
   username: process.env.POSTGRES_DB_USER,
@@ -24,4 +15,5 @@ module.exports = {
   dialect: "postgres",
   host: process.env.POSTGRES_DB_HOST,
   port: process.env.POSTGRES_DB_PORT,
+  use_env_variable: "DATABASE_URL",
 };

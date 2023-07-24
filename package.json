@@ -16,6 +16,8 @@
     "@fastify/flash": "^5.1.0",
     "@fastify/passport": "^2.2.0",
     "@fastify/secure-session": "^6.0.0",
+    "@fastify/swagger": "^8.8.0",
+    "@fastify/swagger-ui": "^1.9.3",
     "@sentry/node": "^7.40.0",
     "@sentry/profiling-node": "^0.2.2",
     "@sentry/tracing": "^7.40.0",

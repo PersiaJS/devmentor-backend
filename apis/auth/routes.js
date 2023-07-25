@@ -53,6 +53,21 @@ async function routes(fastify) {
             properties: {
               status: { type: "boolean" },
               message: { type: "string" },
+              user: {
+                type: "object",
+                properties: {
+                  firstName: { type: "string" },
+                  lastName: { type: "string" },
+                  verified: { type: "boolean" },
+                },
+              },
+              jwt: {
+                type: "object",
+                properties: {
+                  token: { type: "string" },
+                  expiresIn: { type: "string" },
+                },
+              },
             },
           },
         },

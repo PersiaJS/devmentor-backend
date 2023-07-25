@@ -62,13 +62,12 @@ const login = async (request, reply) => {
     });
     return;
   }
-
   const jwtToken = issueJwt({
     id: user.id,
   });
 
   const newData = {};
-  newData.last_logged_time = new Date().getTime();
+  newData.lastLogged = new Date().getTime();
 
   await db.User.update(newData, {
     where: {
@@ -84,8 +83,11 @@ const login = async (request, reply) => {
       lastName: user.lastName,
       verified: user.verified,
     },
-    jwt: jwtToken,
-    message: "Login successful",
+    jwt: {
+      token: jwtToken.token,
+      expiresIn: jwtToken.expires,
+    },
+    message: "Login successful2",
   });
 };
 

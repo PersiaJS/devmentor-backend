@@ -17,7 +17,7 @@ fastifyPassport.use(
       const user = await db.User.findOne({
         where: { id: payload.sub },
         attributes: {
-          exclude: ["password", "security_hash"],
+          exclude: ["password", "securityHash"],
         },
       });
       if (!user) {

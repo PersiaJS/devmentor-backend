@@ -11,7 +11,7 @@ const userMiddleware = async (req, res, next) => {
     const user = await db.User.findOne({
       where: { id: payload.sub },
       attributes: {
-        exclude: ["password", "security_hash"],
+        exclude: ["password", "securityHash"],
       },
     });
 

@@ -46,7 +46,7 @@ const sendVerificationEmail = async (request, reply) => {
     subject: "Confirm Email",
     content:
       "You are receiving this email for your registration in PersiaJS Website, please confirm your email",
-    link: `https://devmentor.net/auth/verify?registerEmailToken=${user.security_hash}`,
+    link: `https://devmentor.net/auth/verify?registerEmailToken=${user.securityHash}`,
     buttonName: "Confirm Email",
   });
 

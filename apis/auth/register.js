@@ -1,5 +1,6 @@
 const Validator = require("validatorjs");
 const issueJwt = require("../../utils/issueJwt");
+const sendEmail = require("../../utils/sendEmail");
 const uuid = require("uuid");
 const { SHA256 } = require("crypto-js");
 const db = require("../../models");
@@ -76,6 +77,33 @@ const register = async (request, reply) => {
 
   const jwtToken = issueJwt({
     id: newUser.id,
+  });
+
+  await sendEmail({
+    firstName: request.body.firstName,
+    to: request.body.email,
+    subject: "Register in DevMentor",
+    content:
+      "You are receiving this email for your registration in DevMentor Website, please confirm your email",
+    link: `https://devmentor.net/auth/verify?registerEmailToken=${newUser.securityHash}`,
+    buttonName: "Confirm Email",
+  });
+
+  await sendEmail({
+    firstName: request.body.firstName,
+    to: "me@ehsangazar.com",
+    subject: "New User in DevMentor",
+    content: `
+      New User Registered in DevMentor
+      <br />
+      First Name: ${request.body.firstName}
+      <br />
+      Last Name ${request.body.lastName}
+      <br />
+      Email: ${request.body.email}
+    `,
+    link: `${process.env.CLIENT_URL}/admin/users`,
+    buttonName: "Visit Profile",
   });
 
   reply.code(200);

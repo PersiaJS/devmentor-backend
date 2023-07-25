@@ -14,7 +14,7 @@ const options = {
 fastifyPassport.use(
   new Strategy(options, async (payload, done) => {
     try {
-      const user = await db.user.findOne({
+      const user = await db.User.findOne({
         where: { id: payload.sub },
         attributes: {
           exclude: ["password", "security_hash"],

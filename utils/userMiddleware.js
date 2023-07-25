@@ -8,7 +8,7 @@ const userMiddleware = async (req, res, next) => {
   if (req.headers.authorization) {
     const token = req.headers.authorization.split(" ")[1];
     const payload = jsonwebtoken.verify(token, SECRET_OR_KEY);
-    const user = await db.user.findOne({
+    const user = await db.User.findOne({
       where: { id: payload.sub },
       attributes: {
         exclude: ["password", "security_hash"],

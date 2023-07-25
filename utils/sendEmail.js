@@ -34,7 +34,7 @@ async function sendEmail({
   }
 
   await transporter.sendMail({
-    from: `"پرشیاجی‌اس" <${process.env.SEND_FROM_EMAIL}>`,
+    from: `"DevMentor" <${process.env.SEND_FROM_EMAIL}>`,
     to,
     subject,
     html: emailTemplate({

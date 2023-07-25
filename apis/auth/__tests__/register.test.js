@@ -30,8 +30,8 @@ describe("register", () => {
     db.User.create = jest.fn().mockResolvedValue({});
     db.User.findOne = jest.fn().mockResolvedValue({
       id: "test",
-      first_name: "test",
-      last_name: "test",
+      firstName: "test",
+      lastName: "test",
       email: "me@ehsangazar.com",
     });
     const req = {

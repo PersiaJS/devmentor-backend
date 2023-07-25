@@ -8,7 +8,7 @@ const emailTemplate = ({
   link,
   buttonName,
   content,
-  headerImage = "https://persiajs.dev/logo.png",
+  headerImage = "https://devmentor.net/logo.png",
   newsletter,
   slug,
 }) => {
@@ -64,7 +64,7 @@ const defaultEmail = ({
             padding: 0;
             -ms-text-size-adjust: 100%;
             -webkit-text-size-adjust: 100%; 
-            direciton: rtl;
+            direciton: ltr;
           }
 
           table {
@@ -118,7 +118,7 @@ const defaultEmail = ({
           .wrapper {
             box-sizing: border-box;
             padding: 20px; 
-            direction: rtl;
+            direction: ltr;
           }
 
           .content-block {
@@ -397,7 +397,7 @@ const defaultEmail = ({
                         </tr>
                         <tr>
                           <td>
-                            <p>سلام ${firstName}</p>
+                            <p>Hellow ${firstName}</p>
                             <p>${content}</p>
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                               <tbody>
@@ -415,10 +415,10 @@ const defaultEmail = ({
                               </tbody>
                             </table>
                             <p>
-                              ارادتمند
+                              Regards
                               <br />
-                              <a href="https://persiajs.dev">
-                                تیم پرشیا جی اس
+                              <a href="https://devmentor.net">
+                                DevMentor Team
                               </a>
                             </p>
                             ${
@@ -426,8 +426,8 @@ const defaultEmail = ({
                                 ? `
                               <div>
                                   <p>
-                                    <a href="https://persiajs.dev/profile/${slug}/settings">
-                                      لغو عضویت در خبرنامه
+                                    <a href="https://devmentor.net/profile/${slug}/settings">
+                                      Unsubscribe from newsletter
                                     </a>
                                   </p>
                               </div>

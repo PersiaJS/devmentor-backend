@@ -16,6 +16,7 @@ const fastifySwaggerUI = require("@fastify/swagger-ui");
 
 const generalRoutes = require("./apis/general/routes");
 const authRoutes = require("./apis/auth/routes");
+const profileRoutes = require("./apis/profile/routes");
 
 const server = Fastify({ logger: true });
 
@@ -43,6 +44,7 @@ server.register(fastifySwaggerUI, {
 
 server.register(generalRoutes);
 server.register(authRoutes);
+server.register(profileRoutes);
 
 const start = async () => {
   try {

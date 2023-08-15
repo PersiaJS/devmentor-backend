@@ -18,6 +18,7 @@ const generalRoutes = require("./apis/general/routes");
 const authRoutes = require("./apis/auth/routes");
 const profileRoutes = require("./apis/profile/routes");
 const contactRoutes = require("./apis/contact/routes");
+const mentorRoutes = require("./apis/mentor/routes");
 
 const server = Fastify({ logger: true });
 
@@ -47,6 +48,7 @@ server.register(generalRoutes);
 server.register(authRoutes);
 server.register(profileRoutes);
 server.register(contactRoutes);
+server.register(mentorRoutes);
 
 const start = async () => {
   try {

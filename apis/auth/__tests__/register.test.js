@@ -9,8 +9,8 @@ describe("register", () => {
     jest.resetModules();
   });
   it("should return 200", async () => {
-    db.User.create = jest.fn().mockResolvedValue({});
-    db.User.findOne = jest.fn().mockResolvedValue(null);
+    db.user.create = jest.fn().mockResolvedValue({});
+    db.user.findOne = jest.fn().mockResolvedValue(null);
     const req = {
       body: {
         firstName: "test",
@@ -27,8 +27,8 @@ describe("register", () => {
     expect(reply.send).toHaveBeenCalled();
   });
   it("should return user is already defined", async () => {
-    db.User.create = jest.fn().mockResolvedValue({});
-    db.User.findOne = jest.fn().mockResolvedValue({
+    db.user.create = jest.fn().mockResolvedValue({});
+    db.user.findOne = jest.fn().mockResolvedValue({
       id: "test",
       firstName: "test",
       lastName: "test",

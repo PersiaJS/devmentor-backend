@@ -24,7 +24,7 @@ const register = async (request, reply) => {
     return;
   }
 
-  const checkForExistenceOfUserByEmail = await db.User.findOne({
+  const checkForExistenceOfUserByEmail = await db.user.findOne({
     where: {
       email: request.body.email.toLowerCase(),
     },
@@ -43,7 +43,7 @@ const register = async (request, reply) => {
   const id = uuid.v1();
   const securityHash = uuid.v1();
   const passwordHashed = SHA256(request.body.password).toString();
-  const newUser = await db.User.create({
+  const newUser = await db.user.create({
     id,
     firstName: request.body.firstName,
     lastName: request.body.lastName,

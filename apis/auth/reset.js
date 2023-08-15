@@ -18,7 +18,7 @@ const reset = async (request, reply) => {
     return;
   }
 
-  const user = await db.User.findOne({
+  const user = await db.user.findOne({
     where: {
       securityHash: request.body.securityHash,
     },
@@ -39,7 +39,7 @@ const reset = async (request, reply) => {
   newData.password = SHA256(request.body.password).toString();
   newData.securityHash = newSecurityHash;
 
-  await db.User.update(newData, {
+  await db.user.update(newData, {
     where: {
       securityHash: request.body.securityHash,
     },

@@ -18,7 +18,7 @@ const updateMyProfileImageApi = async (request, reply) => {
   const newData = {};
   newData.image = request.body.image;
 
-  await db.User.update(newData, {
+  await db.user.update(newData, {
     where: {
       id: request.user?.id,
     },

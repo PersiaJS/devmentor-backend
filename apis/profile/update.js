@@ -2,7 +2,7 @@ const { Op } = require("sequelize");
 const db = require("../../models");
 
 const update = async (request, reply) => {
-  const checkForUsername = await db.User.findOne({
+  const checkForUsername = await db.user.findOne({
     where: {
       username: request.body.username,
       id: {
@@ -20,7 +20,7 @@ const update = async (request, reply) => {
     return;
   }
 
-  const user = await db.User.findOne({
+  const user = await db.user.findOne({
     where: {
       id: request.user?.id,
     },
@@ -38,7 +38,7 @@ const update = async (request, reply) => {
   newData.telegram = request.body.telegram || user.telegram;
   newData.newsletter = request.body.newsletter || user.newsletter;
 
-  await db.User.update(newData, {
+  await db.user.update(newData, {
     where: {
       id: request.user?.id,
     },

@@ -18,7 +18,7 @@ const forget = async (request, reply) => {
 
   const emailLowerdCase = request.body.email.toLowerCase();
 
-  const user = await db.User.findOne({
+  const user = await db.user.findOne({
     where: {
       email: emailLowerdCase,
     },

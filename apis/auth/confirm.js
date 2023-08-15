@@ -15,7 +15,7 @@ const confirm = async (request, reply) => {
     return;
   }
 
-  const user = await db.User.findOne({
+  const user = await db.user.findOne({
     where: {
       securityHash: request.body.securityHash,
     },
@@ -33,7 +33,7 @@ const confirm = async (request, reply) => {
   const newData = {};
   newData.verified = true;
 
-  await db.User.update(newData, {
+  await db.user.update(newData, {
     where: {
       securityHash: request.body.securityHash,
     },

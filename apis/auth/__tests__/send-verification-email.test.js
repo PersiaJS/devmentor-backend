@@ -11,7 +11,7 @@ describe("sendVerificationEmail", () => {
     jest.resetModules();
   });
   it("should return 200", async () => {
-    db.User.findOne = jest.fn().mockResolvedValue({
+    db.user.findOne = jest.fn().mockResolvedValue({
       id: "test",
       first_name: "test",
       last_name: "test",
@@ -33,7 +33,7 @@ describe("sendVerificationEmail", () => {
     expect(sendEmail).toHaveBeenCalled();
   });
   it("should return user is not defined", async () => {
-    db.User.findOne = jest.fn().mockResolvedValue(null);
+    db.user.findOne = jest.fn().mockResolvedValue(null);
     const req = {
       body: {
         email: "test@test.com",
@@ -47,7 +47,7 @@ describe("sendVerificationEmail", () => {
     expect(reply.send).toHaveBeenCalled();
   });
   it("should return user is already verified", async () => {
-    db.User.findOne = jest.fn().mockResolvedValue({
+    db.user.findOne = jest.fn().mockResolvedValue({
       id: "test",
       first_name: "test",
       last_name: "test",

@@ -5,7 +5,7 @@ jest.mock("../../../models");
 
 describe("update", () => {
   it("should return true", async () => {
-    db.User.update = jest.fn();
+    db.user.update = jest.fn();
     const req = {
       body: {
         image: "image",

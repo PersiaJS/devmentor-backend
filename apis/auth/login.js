@@ -19,7 +19,7 @@ const login = async (request, reply) => {
     return;
   }
 
-  const user = await db.User.findOne({
+  const user = await db.user.findOne({
     where: {
       email: request.body.email.toLowerCase(),
     },
@@ -69,7 +69,7 @@ const login = async (request, reply) => {
   const newData = {};
   newData.lastLogged = new Date().getTime();
 
-  await db.User.update(newData, {
+  await db.user.update(newData, {
     where: {
       id: user.id,
     },

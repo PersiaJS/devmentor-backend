@@ -8,7 +8,7 @@ describe("login", () => {
     jest.resetModules();
   });
   it("should return 200", async () => {
-    db.User.findOne = jest.fn().mockResolvedValue({
+    db.user.findOne = jest.fn().mockResolvedValue({
       id: "test",
       first_name: "test",
       last_name: "test",
@@ -32,7 +32,7 @@ describe("login", () => {
   });
 
   it("should not return if user is not verified", async () => {
-    db.User.findOne = jest.fn().mockResolvedValue({
+    db.user.findOne = jest.fn().mockResolvedValue({
       id: "test",
       first_name: "test",
       last_name: "test",
@@ -56,7 +56,7 @@ describe("login", () => {
   });
 
   it("should not return if user is not found", async () => {
-    db.User.findOne = jest.fn().mockResolvedValue(null);
+    db.user.findOne = jest.fn().mockResolvedValue(null);
     const req = {
       body: {
         password: "randomepassword",
@@ -72,7 +72,7 @@ describe("login", () => {
   });
 
   it("should not return if password is not correct", async () => {
-    db.User.findOne = jest.fn().mockResolvedValue({
+    db.user.findOne = jest.fn().mockResolvedValue({
       id: "test",
       first_name: "test",
       last_name: "test",

@@ -5,9 +5,9 @@ jest.mock("../../../models");
 
 describe("update", () => {
   it("should return true", async () => {
-    db.User.update = jest.fn();
-    db.User.findOne = jest.fn().mockReturnValueOnce(null);
-    db.User.findOne = jest.fn().mockReturnValueOnce({
+    db.user.update = jest.fn();
+    db.user.findOne = jest.fn().mockReturnValueOnce(null);
+    db.user.findOne = jest.fn().mockReturnValueOnce({
       firstName: "firstName",
       lastName: "lastName",
       username: "username",

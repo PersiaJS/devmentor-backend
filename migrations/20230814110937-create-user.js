@@ -6,11 +6,14 @@ const ROLE = require("../constants/ROLE");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Users", {
+    await queryInterface.createTable("users", {
       id: {
         allowNull: false,
         primaryKey: true,
         type: DataTypes.UUID,
+      },
+      id: {
+        type: Sequelize.STRING,
       },
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
@@ -63,6 +66,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Users");
+    await queryInterface.dropTable("users");
   },
 };

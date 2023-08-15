@@ -12,7 +12,7 @@ describe("forget", () => {
     jest.resetModules();
   });
   it("should return 200", async () => {
-    db.User.findOne = jest.fn().mockResolvedValue({
+    db.user.findOne = jest.fn().mockResolvedValue({
       id: "test",
       first_name: "test",
       last_name: "test",
@@ -33,7 +33,7 @@ describe("forget", () => {
     expect(sendEmail).toHaveBeenCalledTimes(2);
   });
   it("should return user is not defined", async () => {
-    db.User.findOne = jest.fn().mockResolvedValue(null);
+    db.user.findOne = jest.fn().mockResolvedValue(null);
     const req = {
       body: {
         email: "notfound@test.com",

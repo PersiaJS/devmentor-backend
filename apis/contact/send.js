@@ -1,4 +1,5 @@
 const sendEmail = require("../../utils/sendEmail");
+const Validator = require("validatorjs");
 
 const send = async (request, reply) => {
   const validator = new Validator(request.body, {

@@ -24,6 +24,22 @@ const create = async (request, reply) => {
     return;
   }
 
+  // check if mentor already exists
+  const mentor = await db.mentor.findOne({
+    where: {
+      user_id: request.user.id,
+    },
+  });
+
+  if (mentor) {
+    reply.code(400);
+    reply.send({
+      status: false,
+      message: "Mentor already exists",
+    });
+    return;
+  }
+
   const id = uuid.v1();
   const newMentor = await db.mentor.create({
     id,
@@ -42,6 +58,7 @@ const create = async (request, reply) => {
     article: request.body.article,
     user_id: request.user.id,
     article: request.body.article,
+    status: false,
   });
 
   reply.code(200);

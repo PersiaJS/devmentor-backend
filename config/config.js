@@ -17,5 +17,3 @@ module.exports = {
   port: process.env.POSTGRES_DB_PORT,
   use_env_variable: "DATABASE_URL",
 };
-
-module.exports = config;

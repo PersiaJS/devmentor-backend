@@ -81,16 +81,6 @@ const register = async (request, reply) => {
 
   await sendEmail({
     firstName: request.body.firstName,
-    to: request.body.email,
-    subject: "Register in DevMentor",
-    content:
-      "You are receiving this email for your registration in DevMentor Website, please confirm your email",
-    link: `https://devmentor.net/auth/verify?registerEmailToken=${newUser.securityHash}`,
-    buttonName: "Confirm Email",
-  });
-
-  await sendEmail({
-    firstName: request.body.firstName,
     to: "me@ehsangazar.com",
     subject: "New User in DevMentor",
     content: `

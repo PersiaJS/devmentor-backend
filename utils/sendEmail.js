@@ -12,26 +12,14 @@ async function sendEmail({
   slug,
 }) {
   const transporter = nodemailer.createTransport({
-    host: process.env.SEND_IN_BLUE_URL,
+    host: process.env.SES_URL,
     port: 587,
     secure: false,
     auth: {
-      user: process.env.SEND_IN_BLUE_USER,
-      pass: process.env.SEND_IN_BLUE_PASSWORD,
+      user: process.env.SES_USER,
+      pass: process.env.SES_PASSWORD,
     },
   });
-
-  if (process.env.NODE_ENV === "development") {
-    console.log("Email sent to: ", to);
-    console.log("Email subject: ", subject);
-    console.log("Email content: ", content);
-    console.log("Email link: ", link);
-    console.log("Email buttonName: ", buttonName);
-    console.log("Email firstName: ", firstName);
-    console.log("Email newsletter: ", newsletter);
-    console.log("Email slug: ", slug);
-    return;
-  }
 
   await transporter.sendMail({
     from: `"DevMentor" <${process.env.SEND_FROM_EMAIL}>`,

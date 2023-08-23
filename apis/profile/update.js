@@ -37,6 +37,7 @@ const update = async (request, reply) => {
   newData.linkedin = request.body.linkedin || user.linkedin;
   newData.telegram = request.body.telegram || user.telegram;
   newData.newsletter = request.body.newsletter || user.newsletter;
+  newData.image = request.body.image || user.image;
 
   await db.user.update(newData, {
     where: {

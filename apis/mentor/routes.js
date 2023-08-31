@@ -9,8 +9,8 @@ async function routes(fastify) {
   fastify.post(
     "/mentor/create",
     {
+      preValidation: protectedMiddleware,
       schema: {
-        preValidation: protectedMiddleware,
         tags: ["mentor"],
         summary: "Create mentor",
         headers: {
@@ -189,8 +189,8 @@ async function routes(fastify) {
   fastify.put(
     "/mentor/:id",
     {
+      preValidation: protectedMiddleware,
       schema: {
-        preValidation: protectedMiddleware,
         tags: ["mentor"],
         summary: "Update mentor",
         headers: {
